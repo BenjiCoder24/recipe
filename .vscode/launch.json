@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Streamlit Debug",
+        "type": "python",
+        "request": "launch",
+        "module": "streamlit",            // This runs Streamlit as a module
+        "args": ["run", "app.py"],       // Arguments to mimic your command
+        "console": "integratedTerminal", // Output in VS Code terminal
+        "justMyCode": false              // Allows debugging into third-party libraries
+      }
+    ]
+  }
