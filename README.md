@@ -5,7 +5,7 @@ I built an app using the Python **Streamlit** library to generate a recipe searc
 
 I have hosted this application on Streamlit Community Cloud, and it can be accessed at **[benjamin.streamlit.app](https://benjamin.streamlit.app)**.
 
-![Recipe App Screenshot](https://github.com/user-attachments/assets/2fb92485-7178-478e-a74b-8430e5df4070)
+![Recipe App Screenshot](https://github.com/user-attachments/assets/1fb01aee-b654-4cad-9f1c-11ac6b7b51cf)
 
 ---
 
