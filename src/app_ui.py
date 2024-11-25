@@ -39,7 +39,8 @@ class AppUI:
                 self.display_recipe_details(detailed_recipe)
 
     def display_recipe_details(self, recipe):
-        st.image(recipe.image_url, caption=recipe.title, use_column_width=True)
+        # Display the recipe image with updated parameter
+        st.image(recipe.image_url, caption=recipe.title, use_container_width=True)
         st.subheader("Ingredients")
         for ing in recipe.ingredients:
             st.write(f"- {ing.name}")

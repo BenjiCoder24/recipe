@@ -17,6 +17,8 @@ load_dotenv()
 STREAMLIT_LICENSE_KEY = os.getenv('STREAMLIT_LICENSE_KEY')
 RECIPE_API_KEY = os.getenv('RECIPE_API_KEY')  # Ensure this key is stored in your .env file
 
+
+
 # Use Streamlit's session_state to keep objects persistent between user interactions
 # Initialize UserSession, RecipeAPIClient, DataManager, and AppUI only once
 
