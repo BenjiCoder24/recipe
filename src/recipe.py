@@ -2,6 +2,7 @@ from src.ingredient import Ingredient
 
 class Recipe:
     def __init__(self, data):
+        self.id = data.get('id')  # Add this line to capture the recipe ID
         self.title = data.get('title')
         self.ingredients = [Ingredient(i['name']) for i in data.get('extendedIngredients', [])]
         self.instructions = data.get('instructions')

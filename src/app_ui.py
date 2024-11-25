@@ -2,9 +2,10 @@ import streamlit as st
 from src.recipe import Recipe
 
 class AppUI:
-    def __init__(self, api_client, user_session):
+    def __init__(self, api_client, user_session, data_manager):
         self.api_client = api_client
         self.user_session = user_session
+        self.data_manager = data_manager
 
     def run(self):
         st.title("Recipe Suggestion App")
@@ -26,17 +27,29 @@ class AppUI:
         self.display_recipe_suggestions(self.user_session.recipes)
 
     def display_recipe_suggestions(self, recipes):
+        st.subheader("Recipe Suggestions")
         for recipe in recipes:
-            if st.button(recipe.title):
-                recipe_details = self.api_client.get_recipe_details(recipe_id=recipe.id)
+            with st.expander(recipe.title):
+                # Cache or fetch recipe details
+                recipe_details = self.data_manager.get_cached_recipe(recipe.id)
+                if not recipe_details:
+                    recipe_details = self.api_client.get_recipe_details(recipe_id=recipe.id)
+                    self.data_manager.cache_recipe(recipe.id, recipe_details)
                 detailed_recipe = Recipe(recipe_details)
                 self.display_recipe_details(detailed_recipe)
 
     def display_recipe_details(self, recipe):
-        st.header(recipe.title)
-        st.image(recipe.image_url)
+        st.image(recipe.image_url, caption=recipe.title, use_column_width=True)
         st.subheader("Ingredients")
         for ing in recipe.ingredients:
             st.write(f"- {ing.name}")
+        
         st.subheader("Instructions")
-        st.write(recipe.instructions)
+        if recipe.instructions:
+            # Use st.markdown to render HTML in instructions
+            st.markdown(recipe.instructions, unsafe_allow_html=True)
+        else:
+            st.write("No instructions available.")
+        
+        if recipe.source_url:
+            st.markdown(f"[View Source Recipe]({recipe.source_url})", unsafe_allow_html=True)
