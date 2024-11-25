@@ -58,7 +58,7 @@ class AppUI:
         st.markdown(recipe.instructions, unsafe_allow_html=True)
 ```
 
-When a button is pressed or an input is processed, supporting methods in `app_ui.py` handle the interactions. For example:
+When the "Add ingredient" button is pressed is processed, supporting methods in `app_ui.py` handle the interactions. For example:
 
 ```python
 def display_ingredient_input(self):
@@ -69,6 +69,34 @@ def display_ingredient_input(self):
     for ing in self.user_session.ingredients:
         st.write(f"- {ing.name}")
 ```
+
+When the "Find Recipe" button is pressed then the below function converts the input incredients into API request URL like
+
+ [([[https://api.spoonacular.com](https://api.spoonacular.com/recipes/findByIngredients)](https://api.spoonacular.com/recipes/findByIngredients))](https://api.spoonacular.com/recipes/findByIngredients)
+
+The API call return a result that is rendered by the display_recipe_details function
+
+```python
+def display_recipe_details(self, recipe):
+        # Display the recipe image with updated parameter
+        st.image(recipe.image_url, caption=recipe.title, use_container_width=True)
+        st.subheader("Ingredients")
+        for ing in recipe.ingredients:
+            st.write(f"- {ing.name}")
+        
+        st.subheader("Instructions")
+        if recipe.instructions:
+            # Use st.markdown to render HTML in instructions
+            st.markdown(recipe.instructions, unsafe_allow_html=True)
+        else:
+            st.write("No instructions available.")
+        
+        if recipe.source_url:
+            st.markdown(f"[View Source Recipe]({recipe.source_url})", unsafe_allow_html=True)
+```
+
+
+
 
 ---
 
