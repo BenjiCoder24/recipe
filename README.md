@@ -138,12 +138,22 @@ class RecipeAPIClient:
 ```
 
 ---
+ ## Hosting the app on Streamlit community cloud
 
-## Open Items
-1. **Recipe API Integration**:
-   - The **Find Recipes** button is functional, but I'm still working on fine-tuning the integration with the Spoonacular API.
-2. **Python Environment Issues**:
-   - I encountered issues after upgrading macOS, which disrupted my Python environment. I plan to resolve this today.
+create account and then create app (top right)
+
+![image](https://github.com/user-attachments/assets/ab8f4366-24d8-4b24-988e-916413afebdb)
+
+then select App from GitHub
+
+![image](https://github.com/user-attachments/assets/087f7fd9-9804-4bce-a25b-ab59efc9c5b0)
+
+then select you repository name and click deploy
+
+![image](https://github.com/user-attachments/assets/ce8acbc7-7072-44cb-a657-1c839a96f9be)
+
+
+
 
 ---
 
