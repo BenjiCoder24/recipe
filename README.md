@@ -72,7 +72,7 @@ def display_ingredient_input(self):
 
 When the "Find Recipe" button is pressed then the below function converts the input incredients into API request URL like
 
- [[https://api.spoonacular.com](https://api.spoonacular.com/recipes/findByIngredients?Ingredients=milk,api_key=xxx)](https://api.spoonacular.com/recipes/findByIngredients)
+ [[https://api.spoonacular.com](https://api.spoonacular.com/recipes/findByIngredients?Ingredients=milk,api_key=xxx)]([https://api.spoonacular.com/recipes/findByIngredients](https://api.spoonacular.com/recipes/findByIngredients?Ingredients=milk,api_key=xxx))
 
 The API call return a result that is rendered by the display_recipe_details function
 
