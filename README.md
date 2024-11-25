@@ -14,6 +14,7 @@ I have hosted this application on Streamlit Community Cloud, and it can be acces
 ### Streamlit
 I used **Streamlit**, a Python framework that allows me to create webpages without writing HTML code.
 
+
 ### Object-Oriented Design
 The app follows an object-oriented design pattern:
 - Logic and data are encapsulated in class objects.
